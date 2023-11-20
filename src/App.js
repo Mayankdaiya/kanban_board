@@ -1,24 +1,18 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Filter from './Components/Filter';
+import HomePage from './Components/HomePage';
 
 function App() {
+  const [group, setgrp] = useState('status');
+  const [order, setord] = useState('priority');
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Filter Grouping={setgrp} Ordering={setord}></Filter>
+    <HomePage grp={group} ord={order}></HomePage>
+    </>
   );
 }
 
